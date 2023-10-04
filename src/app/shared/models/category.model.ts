@@ -1,6 +1,6 @@
 import { Guid } from "guid-typescript";
 
 export class Category {
-    constructor(public id: Guid,
+    constructor(public id: string,
         public name: string) {}
 }

@@ -15,10 +15,11 @@ export class AppProductsService {
 
   constructor(private http: HttpClient) { }
 
-  getProducts(pageNumber: number, pageSize: number) : Observable<PaginationResponse<Product>> {
+  getProducts(pageNumber: number, pageSize: number, categoryId: string) : Observable<PaginationResponse<Product>> {
     const params = new HttpParams()
       .set('pageNumber', pageNumber.toString())
-      .set('pageSize', pageSize.toString());
+      .set('pageSize', pageSize.toString())
+      .set('categoryId', categoryId);
     return this.http.get<PaginationResponse<Product>>(this.crudAppApiUrl + '/products', {params});
   }
 
